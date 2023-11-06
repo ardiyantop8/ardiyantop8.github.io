@@ -1,0 +1,100 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+}
+
+.roocwidget .cw-launcher .cw-closed-icon{
+  border-radius: 50%;
+}
+
+.roocwidget .custom .cw-chat-window.login{
+    background:#145da0!important;
+}
+
+.roocwidget .custom .menu-background{
+    background:#145da0!important;
+}
+
+.roocwidget .custom .chat-header{
+background:#145da0!important;
+color:white!important;
+}
+
+.roocwidget .custom .chat-header--team-name:hover{
+background:#145da0 !important;
+}   
+
+  .roocwidget .custom .chat-bubble.from-me{
+    background:#145da0!important;
+    color:white!important;
+} 
+  .roocwidget .custom .from-me.end::before{
+      border-right-color:#145da0!important;
+}
+
+  .roocwidget .custom #assetchatbot-12{
+      fill:#145da0;
+}
+
+  .roocwidget .custom .cw-launcher{
+      background: #145da0 center no-repeat !important;
+}
+
+  .roocwidget .RooC-MuiButtonBase-root.RooC-MuiButton-root.RooC-MuiButton-text.RooC-MuiButton-textPrimary{
+  border: solid 1px grey;
+}
+
+.roocwidget .RooC-MuiButtonBase-root.RooC-MuiButton-root.RooC-MuiButton-text.RooC-MuiButton-textPrimary .RooC-MuiButton-label{
+  text-transform: none;
+}
+
+.roocwidget .RooC-MuiTypography-root.RooC-MuiTypography-h6.RooC-MuiTypography-gutterBottom{
+  text-align : center;
+  font-size: 0.875rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+}
+
+.roocwidget .RooC-MuiTypography-root.RooC-MuiTypography-body2.RooC-MuiTypography-colorTextSecondary{
+  text-align : center;
+}
+
+.roocwidget .custom .btn-submit--login .RooC-MuiButton-label {
+    visibility: hidden;
+}
+
+.roocwidget .custom .btn-submit--login .RooC-MuiButton-label::after {
+    visibility: visible;
+    content: 'MULAI CHAT';
+    position: absolute;
+}
+
+.roocwidget .custom .btn-submit--login .RooC-MuiButton-label {
+    visibility: hidden;
+}
+
+#rooc-widget-launcher {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    width:60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffd791;
+    border-radius: 50%;
+    font-size: 24px;
+    line-height: 1.5;
+}
+
+#rooc-widget-launcher .cw-closed-icon {
+    height: 60px;
+    width: 60px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+Hide code snippet
