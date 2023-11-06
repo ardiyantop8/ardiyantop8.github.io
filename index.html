@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet" />
+        <link href="./widget_chatbot/css/main.css" rel="stylesheet" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Embeddable Widget</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="./widget_chatbot/css/main.css">
+    <style>
+        body {
+            background-image: url('./widget_chatbot/HDS8000.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+        <title>Egeroo</title>
+    </head>
+    <body>
+        <div id="rooc-widget-launcher" >
+            <img class="cw-closed-icon" src="./widget_chatbot/images/ChatBotLogo.jpg" alt="this is icon"/>
+        </div>
+        <script src="./widget_chatbot/js/widget.js"></script>
+        <script>
+
+        RooCWidget.mount({
+
+        data: {
+            logoUrl: './widget_chatbot/chatbotHDS.png',
+            logoAlt: 'rooc',
+            desc: 'Please sign up with your ID to continue',
+            channelName: 'rooc',
+            baseURL: 'http://172.18.224.62:8080/channel/bri',
+            inputkeyboardcaption:'type here please...',
+            // inputkeyboarddisabled: true,
+            tenant: 'bri',
+            launcherIcon:'./widget_chatbot/ChatBotLogo.jpg',
+            launcherIconAlt: 'this is icon',
+            voice:'Damayanti',
+            rate:1.0,
+            pitch:1.9,
+            alwaysLoadHistoryReqRobbyForBri20230330: false,
+            useCountdown:true,
+            idleTimeout:70000,
+            promptTimeout:30000
+        }
+    });
+
+        </script>
+        <link rel="stylesheet" href="./widget_chatbot/css/main.css">
+        <script src="widget_chatbot/js/rooc-draggable.js"></script>
+    </body>
+
+</html>
