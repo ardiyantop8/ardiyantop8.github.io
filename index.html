@@ -68,15 +68,15 @@
                 isDrag = false;
             } else if (!isDrag && draggableImage.contains(e.target)) {
                 document.getElementById('rooc-widget-appx').style.display = "block";
-                draggable.style.display = 'none';
+                draggableImage.style.display = 'none';
             }
         }
         
         function moveElement(e) {
             mouseX = e.clientX - posX;
             mouseY = e.clientY - posY;
-            draggable.style.left = mouseX + 'px';
-            draggable.style.top = mouseY + 'px';
+            draggableImage.style.left = mouseX + 'px';
+            draggableImage.style.top = mouseY + 'px';
             isDrag = true;
         }
     </script>
