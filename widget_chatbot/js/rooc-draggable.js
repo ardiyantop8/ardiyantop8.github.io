@@ -1,5 +1,4 @@
 var draggable = document.getElementById('rooc-widget-launcher');
-
 var posX = 0,
     posY = 0,
     mouseX = 0,
@@ -8,12 +7,37 @@ var isDrag = false;
 
 draggable.addEventListener('mousedown', mouseDown, false);
 window.addEventListener('mouseup', mouseUp, false);
+draggable.addEventListener("touchstart", touchStart, false);
+draggable.addEventListener("touchend", touchEnd, false);
+window.addEventListener("touchmove", touchMove, false);
+draggable.addEventListener("touchmove", touchMove, false);
 
 function mouseDown(e) {
     e.preventDefault();
     posX = e.clientX - draggable.offsetLeft;
     posY = e.clientY - draggable.offsetTop;
     window.addEventListener('mousemove', moveElement, false);
+}
+
+function touchStart(e) {
+    e.preventDefault();
+    const touch = e.touches[0];
+    posX = touch.clientX - draggable.offsetLeft;
+    posY = touch.clientY - draggable.offsetTop;
+}
+
+function touchEnd() {
+    isDrag = false;
+}
+
+function touchMove(e) {
+    if (isDrag) {
+        const touch = e.touches[0];
+        const left = touch.clientX - posX;
+        const top = touch.clientY - posY;
+        draggable.style.left = left + "px";
+        draggable.style.top = top + "px";
+    }
 }
 
 function mouseUp(e) {
@@ -33,34 +57,3 @@ function moveElement(e) {
     draggable.style.top = mouseY + 'px';
     isDrag = true;
 }
-
-document.addEventListener("touchmove", (e) => {
-    if (isDrag) {
-        const touch = e.touches[0];
-        const left = touch.clientX - offsetX;
-        const top = touch.clientY - offsetY;
-        draggable.style.left = left + "px";
-        draggable.style.top = top + "px";
-    }
-});
-
-draggable.addEventListener("touchstart", (e) => {
-    isDrag = true;
-    const touch = e.touches[0];
-    posX = touch.clientX - draggableImage.getBoundingClientRect().left;
-    posY = touch.clientY - draggableImage.getBoundingClientRect().top;
-});
-
-draggable.addEventListener("touchmove", (e) => {
-    if (isDrag) {
-        const touch = e.touches[0];
-        const left = touch.clientX - posX;
-        const top = touch.clientY - posY;
-        draggableImage.style.left = left + "px";
-        draggableImage.style.top = top + "px";
-    }
-});
-
-draggable.addEventListener("touchend", () => {
-    isDrag = false;
-});
