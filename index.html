@@ -80,5 +80,30 @@
             isDrag = true;
         }
     </script>
+    <script>
+        const laptopMediaQuery = window.matchMedia('(min-width: 1025px)');
+        const tabletMediaQuery = window.matchMedia('(min-width: 768px) and (max-width: 1024px)');
+        const mobileMediaQuery = window.matchMedia('(max-width: 767px)');
+        
+        const determineDevice = () => {
+          if (laptopMediaQuery.matches) {
+            console.log('Ini adalah laptop.');
+          } else if (tabletMediaQuery.matches) {
+            console.log('Ini adalah tablet.');
+          } else if (mobileMediaQuery.matches) {
+            console.log('Ini adalah ponsel.');
+          } else {
+            console.log('Tidak sesuai dengan kategori apa pun.');
+          }
+        };
+        
+        // Tambahkan event listener untuk memantau perubahan kondisi media query
+        laptopMediaQuery.addListener(determineDevice);
+        tabletMediaQuery.addListener(determineDevice);
+        mobileMediaQuery.addListener(determineDevice);
+        
+        // Panggil fungsi pertama kali untuk menentukan perangkat berdasarkan kondisi awal
+        determineDevice();
+    </script>
 </body>
 </html>
