@@ -1,43 +1,18 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet" />
-        <link href="./widget_chatbot/css/main.css" rel="stylesheet" />
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>TEK</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="./widget_chatbot/css/main.css">
-    <!-- <style>
-        body {
-            background-image: url('./widget_chatbot/HDS8000.jpg');
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-    </style> -->
-    <style>
-        #rooc-widget-launcher {
-            position: relative;
-            width: 300px;
-            height: 300px;
-        }
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Drag & Drop</title>
+</head>
+<body>
+    <div id="draggable-container">
+        <img id="draggable-image" src="./widget_chatbot/images/ChatBotLogo.jpg" alt="Gambar" draggable="true">
+    </div>
 
-        #draggable-image {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            cursor: move;
-        }
-    </style>
-        <title>test</title>
-    </head>
-    <body>
-        <div id="rooc-widget-launcher" >
-            <img class="cw-closed-icon" id="draggable-image" src="./widget_chatbot/images/ChatBotLogo.jpg" alt="this is icon"/>
-        </div>
-<!--         <script src="./widget_chatbot/js/widget.js"></script> -->
-        <script>
-
+    <script src="./widget_chatbot/js/rooc-draggable.js"></script>
+    <script>
         RooCWidget.mount({
             data: {
                 logoUrl: './widget_chatbot/chatbotHDS.png',
@@ -59,62 +34,6 @@
                 promptTimeout:30000
             }
         });
-
-        </script>
-        <link rel="stylesheet" href="./widget_chatbot/css/main.css">
-        <script src="widget_chatbot/js/rooc-draggable.js"></script>
-        <script>
-            const draggableImage = document.getElementById("draggable-image");
-            let offsetX, offsetY;
-            let isDragging = false;
-    
-            draggableImage.addEventListener("touchstart", (e) => {
-                isDragging = true;
-                const touch = e.touches[0];
-                offsetX = touch.clientX - draggableImage.getBoundingClientRect().left;
-                offsetY = touch.clientY - draggableImage.getBoundingClientRect().top;
-            });
-    
-            document.addEventListener("touchmove", (e) => {
-                if (isDragging) {
-                    const touch = e.touches[0];
-                    const left = touch.clientX - offsetX;
-                    const top = touch.clientY - offsetY;
-                    draggableImage.style.left = left + "px";
-                    draggableImage.style.top = top + "px";
-                }
-            });
-    
-            document.addEventListener("touchend", () => {
-                isDragging = false;
-            });
-        </script>
-<!--         <script>
-            const draggableImage = document.getElementById("draggable-image");
-            let offsetX, offsetY;
-            let isDragging = false;
-
-            draggableImage.addEventListener("touchstart", (e) => {
-                isDragging = true;
-                const touch = e.touches[0];
-                offsetX = touch.clientX - draggableImage.getBoundingClientRect().left;
-                offsetY = touch.clientY - draggableImage.getBoundingClientRect().top;
-            });
-
-            document.addEventListener("touchmove", (e) => {
-                if (isDragging) {
-                    const touch = e.touches[0];
-                    const left = touch.clientX - offsetX;
-                    const top = touch.clientY - offsetY;
-                    draggableImage.style.left = left + "px";
-                    draggableImage.style.top = top + "px";
-                }
-            });
-
-            document.addEventListener("touchend", () => {
-                isDragging = false;
-            });
-        </script> -->
-    </body>
-
+    </script>
+</body>
 </html>
