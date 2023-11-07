@@ -27,7 +27,8 @@
 <!--     <script src="./widget_chatbot/js/rooc-draggable.js"></script> -->
     <script>
         const draggableImage = document.getElementById("draggable-image");
-        let offsetX, offsetY;
+        let offsetX, offsetY, posX, posY, mouseX, mouseY;
+        let isDrag = false;
         let isDragging = false;
         
         draggableImage.addEventListener("touchstart", (e) => {
@@ -50,6 +51,34 @@
         document.addEventListener("touchend", () => {
             isDragging = false;
         });
+
+        draggable.addEventListener('mousedown', mouseDown, false);
+        window.addEventListener('mouseup', mouseUp, false);
+        
+        function mouseDown(e) {
+            e.preventDefault();
+            posX = e.clientX - draggable.offsetLeft;
+            posY = e.clientY - draggable.offsetTop;
+            window.addEventListener('mousemove', moveElement, false);
+        }
+        
+        function mouseUp(e) {
+            window.removeEventListener('mousemove', moveElement, false);
+            if (isDrag) {
+                isDrag = false;
+            } else if (!isDrag && draggable.contains(e.target)) {
+                document.getElementById('rooc-widget-appx').style.display = "block";
+                draggable.style.display = 'none';
+            }
+        }
+        
+        function moveElement(e) {
+            mouseX = e.clientX - posX;
+            mouseY = e.clientY - posY;
+            draggable.style.left = mouseX + 'px';
+            draggable.style.top = mouseY + 'px';
+            isDrag = true;
+        }
     </script>
 </body>
 </html>
