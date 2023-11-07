@@ -19,27 +19,6 @@ function mouseDown(e) {
     window.addEventListener('mousemove', moveElement, false);
 }
 
-function touchStart(e) {
-    // e.preventDefault();
-    const touch = e.touches[0];
-    posX = touch.clientX - draggable.offsetLeft;
-    posY = touch.clientY - draggable.offsetTop;
-}
-
-function touchEnd() {
-    isDrag = false;
-}
-
-function touchMove(e) {
-    if (isDrag) {
-        const touch = e.touches[0];
-        const left = touch.clientX - posX;
-        const top = touch.clientY - posY;
-        draggable.style.left = left + "px";
-        draggable.style.top = top + "px";
-    }
-}
-
 function mouseUp(e) {
     window.removeEventListener('mousemove', moveElement, false);
     if (isDrag) {
