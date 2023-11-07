@@ -1,4 +1,4 @@
-const draggableChatbox = document.getElementById("draggable-chatbox");
+const draggableChatbox = document.getElementById("draggable-container");
 let offsetX, offsetY;
 let isDragging = false;
 
