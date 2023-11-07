@@ -76,7 +76,7 @@ background:#145da0 !important;
 }
 
 #rooc-widget-launcher {
-    position: absolute;
+    position: fixed;
     right: 25px;
     bottom: 25px;
     width:60px;
