@@ -33,3 +33,34 @@ function moveElement(e) {
     draggable.style.top = mouseY + 'px';
     isDrag = true;
 }
+
+document.addEventListener("touchmove", (e) => {
+    if (isDrag) {
+        const touch = e.touches[0];
+        const left = touch.clientX - offsetX;
+        const top = touch.clientY - offsetY;
+        draggable.style.left = left + "px";
+        draggable.style.top = top + "px";
+    }
+});
+
+draggable.addEventListener("touchstart", (e) => {
+    isDrag = true;
+    const touch = e.touches[0];
+    posX = touch.clientX - draggableImage.getBoundingClientRect().left;
+    posY = touch.clientY - draggableImage.getBoundingClientRect().top;
+});
+
+draggable.addEventListener("touchmove", (e) => {
+    if (isDrag) {
+        const touch = e.touches[0];
+        const left = touch.clientX - posX;
+        const top = touch.clientY - posY;
+        draggableImage.style.left = left + "px";
+        draggableImage.style.top = top + "px";
+    }
+});
+
+draggable.addEventListener("touchend", () => {
+    isDrag = false;
+});
