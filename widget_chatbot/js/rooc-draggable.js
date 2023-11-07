@@ -1,44 +1,33 @@
-const draggableChatbox = document.getElementById("draggable-container");
-let offsetX, offsetY;
+const draggableImage = document.getElementById('draggable-image');
 let isDragging = false;
+let offsetX, offsetY;
 
-draggableChatbox.addEventListener("mousedown", (e) => {
+draggableImage.addEventListener('mousedown', (e) => {
     isDragging = true;
-    offsetX = e.clientX - draggableChatbox.getBoundingClientRect().left;
-    offsetY = e.clientY - draggableChatbox.getBoundingClientRect().top;
+    const rect = draggableImage.getBoundingClientRect();
+    offsetX = e.clientX - rect.left;
+    offsetY = e.clientY - rect.top;
+    draggableImage.style.zIndex = '1';
 });
 
-document.addEventListener("mousemove", (e) => {
-    if (isDragging) {
-        const left = e.clientX - offsetX;
-        const top = e.clientY - offsetY;
-        draggableChatbox.style.left = left + "px";
-        draggableChatbox.style.top = top + "px";
-    }
+document.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    const x = e.clientX - offsetX;
+    const y = e.clientY - offsetY;
+
+    const container = document.getElementById('draggable-container');
+    const maxX = container.clientWidth - draggableImage.clientWidth;
+    const maxY = container.clientHeight - draggableImage.clientHeight;
+
+    // Ensure the image stays within the container
+    const clampedX = Math.min(maxX, Math.max(0, x));
+    const clampedY = Math.min(maxY, Math.max(0, y));
+
+    draggableImage.style.left = clampedX + 'px';
+    draggableImage.style.top = clampedY + 'px';
 });
 
-document.addEventListener("mouseup", () => {
+document.addEventListener('mouseup', () => {
     isDragging = false;
-});
-
-// Event untuk perangkat sentuh (touch) seperti smartphone dan tablet
-draggableChatbox.addEventListener("touchstart", (e) => {
-    isDragging = true;
-    const touch = e.touches[0];
-    offsetX = touch.clientX - draggableChatbox.getBoundingClientRect().left;
-    offsetY = touch.clientY - draggableChatbox.getBoundingClientRect().top;
-});
-
-document.addEventListener("touchmove", (e) => {
-    if (isDragging) {
-        const touch = e.touches[0];
-        const left = touch.clientX - offsetX;
-        const top = touch.clientY - offsetY;
-        draggableChatbox.style.left = left + "px";
-        draggableChatbox.style.top = top + "px";
-    }
-});
-
-document.addEventListener("touchend", () => {
-    isDragging = false;
+    draggableImage.style.zIndex = '0';
 });
