@@ -1,11 +1,17 @@
-#draggable-container {
+.image-container {
     position: relative;
-    width: 400px;
-    height: 400px;
-    overflow: hidden;
+    width: 40px; /* Sesuaikan dengan ukuran yang Anda inginkan */
+    height: 40px; /* Sesuaikan dengan ukuran yang Anda inginkan */
+    user-select: none; /* Mencegah pemilihan teks saat menggeser gambar */
 }
 
 #draggable-image {
-    position: absolute;
-    cursor: move;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transition: transform 0.3s; /* Animasi transisi saat mengubah transformasi */
+}
+
+#draggable-image.dragging {
+    z-index: 50; /* Memindahkan gambar ke atas lapisan untuk menghindari potongan */
 }
