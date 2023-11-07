@@ -7,10 +7,10 @@ var isDrag = false;
 
 draggable.addEventListener('mousedown', mouseDown, false);
 window.addEventListener('mouseup', mouseUp, false);
-draggable.addEventListener("touchstart", touchStart, false);
-draggable.addEventListener("touchend", touchEnd, false);
-window.addEventListener("touchmove", touchMove, false);
-draggable.addEventListener("touchmove", touchMove, false);
+draggable.addEventListener("touchstart", touchStart, true);
+draggable.addEventListener("touchend", touchEnd, true);
+window.addEventListener("touchmove", touchMove, true);
+draggable.addEventListener("touchmove", touchMove, true);
 
 function mouseDown(e) {
     e.preventDefault();
