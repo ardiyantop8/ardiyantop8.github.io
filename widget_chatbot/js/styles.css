@@ -1,16 +1,11 @@
-body {
-    margin: 0;
+#draggable-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
     overflow: hidden;
 }
 
-#draggable-container {
-    position: relative;
-    user-select: none; /* Mencegah pemilihan teks saat menggeser gambar */
-}
-
 #draggable-image {
-    width: 40px;
-    height: 40px;
+    position: absolute;
     cursor: move;
-    transition: transform 0.3s; /* Animasi transisi saat mengubah transformasi */
 }
