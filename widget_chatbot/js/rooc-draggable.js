@@ -20,7 +20,7 @@ function mouseDown(e) {
 }
 
 function touchStart(e) {
-    e.preventDefault();
+    // e.preventDefault();
     const touch = e.touches[0];
     posX = touch.clientX - draggable.offsetLeft;
     posY = touch.clientY - draggable.offsetTop;
