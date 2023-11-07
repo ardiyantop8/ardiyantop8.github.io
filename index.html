@@ -3,37 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./widget_chatbox/js/styles.css">
-    <title>DROP</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>Draggable Image</title>
 </head>
 <body>
     <div id="draggable-container">
-        <img id="draggable-image" src="./widget_chatbot/images/ChatBotLogo.jpg" alt="Gambar" draggable="true">
+        <img id="draggable-image" src="./widget_chatbox/images/ChatBotLogo.jpg" alt="Draggable Image">
     </div>
-
-    <script src="./widget_chatbot/js/rooc-draggable.js"></script>
-    <script>
-        RooCWidget.mount({
-            data: {
-                logoUrl: './widget_chatbot/chatbotHDS.png',
-                logoAlt: 'rooc',
-                desc: 'Please sign up with your ID to continue',
-                channelName: 'rooc',
-                baseURL: 'http://172.18.224.62:8080/channel/bri',
-                inputkeyboardcaption:'type here please...',
-                // inputkeyboarddisabled: true,
-                tenant: 'bri',
-                launcherIcon:'./widget_chatbot/ChatBotLogo.jpg',
-                launcherIconAlt: 'this is icon',
-                voice:'Damayanti',
-                rate:1.0,
-                pitch:1.9,
-                alwaysLoadHistoryReqRobbyForBri20230330: false,
-                useCountdown:true,
-                idleTimeout:70000,
-                promptTimeout:30000
-            }
-        });
-    </script>
+    <script src="./widget_chatbox/js/rooc-draggable.js"></script>
 </body>
 </html>
